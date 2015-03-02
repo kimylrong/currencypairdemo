@@ -1,0 +1,41 @@
+<div class="page-header">
+	<h1>Input new trade</h1>
+</div>
+
+<form role="form" class="form-horizontal col-lg-7">
+	<div class="form-group">
+		<label for="userId">User ID</label>
+		<input data-ng-model="trade.userId" type="text" class="form-control" id="userId" placeholder="User ID">
+	</div>
+	<div class="form-group">
+		<label for="currencyFrom">Currency From</label>
+		<input data-ng-model="trade.currencyFrom" type="text" class="form-control" id="currencyFrom" placeholder="Currency From">
+	</div>
+	<div class="form-group">
+		<label for="currencyTo">Currency To</label>
+		<input data-ng-model="trade.currencyTo" type="text" class="form-control" id="currencyTo" placeholder="Currency To">
+	</div>
+	<div class="form-group">
+		<label for="amountSell">Amount Sell</label>
+		<input data-ng-model="trade.amountSell" type="text" class="form-control" id="amountSell" placeholder="Amount Sell">
+	</div>
+	<div class="form-group">
+		<label for="amountBuy">Amount Buy</label>
+		<input data-ng-model="trade.amountBuy" type="text" class="form-control" id="amountBuy" placeholder="Amount Buy">
+	</div>
+	<div class="form-group">
+		<label for="rate">Rate</label>
+		<input data-ng-model="trade.rate" type="text" class="form-control" id="rate" placeholder="Rate">
+	</div>
+	<div class="form-group">
+		<label for="timePlaced">Time Placed</label>
+		<input data-ng-model="trade.timePlaced" type="text" class="form-control" id="timePlaced" placeholder="Time Placed">
+	</div>
+	<div class="form-group">
+		<label for="originatingCountry">Originating Country</label>
+		<input data-ng-model="trade.originatingCountry" type="text" class="form-control" id="originatingCountry" placeholder="Originating Country">
+	</div>
+</div>
+
+<button data-ng-click="save()" type="submit" class="btn btn-primary">Submit</button>
+</form>

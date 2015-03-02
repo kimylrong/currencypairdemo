@@ -1,0 +1,32 @@
+<div class="brand text-center">
+  <h1>Trade Infomation of Currency Pair</h1>
+</div>
+<div>
+  <table class="table table-bordered table-condensed table-hover">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Currency From</th>
+        <th>Currency To</th>
+        <th>Amount Sell</th>
+        <th>Amount Buy</th>
+        <th>Rate</th>
+        <th>Time Placed</th>
+        <th>Originating Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="trade in trades">
+        <td>{{trade.userId}}</td>
+        <td>{{trade.currencyFrom}}</td>
+        <td>{{trade.currencyTo}}</td>
+        <td>{{trade.amountSell}}</td>
+        <td>{{trade.amountBuy}}</td>
+        <td>{{trade.rate}}</td>
+        <td>{{trade.timePlaced}}</td>
+        <td>{{trade.originatingCountry}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button data-ng-click="inputtrade()" type="submit" class="btn btn-primary">Input Trade</button>
+</div>

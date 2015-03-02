@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+	<Set name="ThreadPool">
+		<!-- Default queued blocking threadpool -->
+		<New class="org.eclipse.jetty.util.thread.QueuedThreadPool">
+			<Set name="minThreads">10</Set>
+			<Set name="maxThreads">200</Set>
+			<Set name="detailedDump">false</Set>
+		</New>
+	</Set>
+
+	<Call name="addConnector">
+		<Arg>
+			<New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+				<Set name="host">0.0.0.0</Set>
+				<Set name="port">9004</Set>
+				<Set name="maxIdleTime">300000</Set>
+				<Set name="Acceptors">1</Set>
+				<Set name="statsOn">false</Set>
+				<Set name="confidentialPort">8443</Set>
+				<Set name="lowResourcesConnections">20000</Set>
+				<Set name="lowResourcesMaxIdleTime">5000</Set>
+				<Set name="reuseAddress">false</Set>
+			</New>
+		</Arg>
+	</Call>
+
+	<Set name="handler">
+		<New id="Handlers" class="org.eclipse.jetty.server.handler.HandlerCollection">
+			<Set name="handlers">
+				<Array type="org.eclipse.jetty.server.Handler">
+					<Item>
+						<New class="org.eclipse.jetty.webapp.WebAppContext">
+							<Set name="contextPath">/</Set>
+							<Set name="resourceBase">
+								./src/main/webapp
+							</Set>
+							<Set name="parentLoaderPriority">true</Set>
+							<Set name="defaultsDescriptor">jetty/webdefault-windows.xml</Set>
+						</New>
+					</Item>
+					<!-- add a RequestLogHandler -->
+					<Item>
+						<New id="RequestLogHandler" class="org.eclipse.jetty.server.handler.RequestLogHandler" />
+					</Item>
+				</Array>
+			</Set>
+		</New>
+	</Set>
+
+	<Set name="stopAtShutdown">true</Set>
+	<Set name="sendServerVersion">true</Set>
+	<Set name="sendDateHeader">true</Set>
+	<Set name="gracefulShutdown">1000</Set>
+	<Set name="dumpAfterStart">false</Set>
+	<Set name="dumpBeforeStop">false</Set>
+
+</Configure>
